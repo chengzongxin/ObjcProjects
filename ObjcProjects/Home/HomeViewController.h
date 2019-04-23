@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  HomeViewController.h
 //  NavigationBarDemo
 //
 //  Created by Joe on 2019/4/23.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+NS_ASSUME_NONNULL_BEGIN
 
-@property (strong, nonatomic) UIWindow *window;
-
+@interface HomeViewController : UIViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
