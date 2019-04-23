@@ -11,6 +11,7 @@
 #import "UIViewController+HBD.h"
 
 @interface HomeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *alphaLabel;
 
 @end
 
@@ -35,11 +36,24 @@
     UIViewController *vc = [[UIStoryboard storyboardWithName:@"Home" bundle:nil] instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)buttonClick:(id)sender {
+    NSLog(@"%s",__FUNCTION__);
+}
 
+
+/**
+ 导航栏透明度
+ */
 - (IBAction)sliderValueChange:(UISlider *)slider {
+    self.alphaLabel.text = [NSString stringWithFormat:@"Alpha : %g",slider.value];
     self.hbd_barAlpha = slider.value;
     [self hbd_setNeedsUpdateNavigationBarAlpha];
 }
+
+
+/**
+ 导航栏背景色
+ */
 - (IBAction)whiteColor:(id)sender {
     self.hbd_barTintColor = UIColor.whiteColor;
     [self hbd_setNeedsUpdateNavigationBar];
@@ -47,6 +61,25 @@
 - (IBAction)randomColor:(id)sender {
     self.hbd_barTintColor = [[self class] randomColor];
     [self hbd_setNeedsUpdateNavigationBar];
+}
+
+
+/**
+ 隐藏导航栏下划线
+ */
+- (IBAction)shadownSwichChanged:(UISwitch *)switchButton {
+    self.hbd_barShadowHidden = switchButton.isOn;
+    [self hbd_setNeedsUpdateNavigationBarShadowAlpha];
+}
+
+
+/**
+ 隐藏导航栏
+ */
+- (IBAction)navigationBarChanged:(UISwitch *)switchButton {
+//    self.hbd_barHidden = switchButton.isOn;
+//    [self hbd_setNeedsUpdateNavigationBar];
+    self.navigationController.navigationBar.hidden = switchButton.isOn;
 }
 
 + (UIColor *)randomColor

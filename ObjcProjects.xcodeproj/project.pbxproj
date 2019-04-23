@@ -133,7 +133,6 @@
 				B8E76F56DA4C5D8AE4486A12 /* Pods-ObjcProjectsUITests.debug.xcconfig */,
 				D22A28290E2C3AF59ABF8588 /* Pods-ObjcProjectsUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -230,9 +229,9 @@
 		59E177CF226F04FC00E9625B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				59E177D0226F04FC00E9625B /* HomeViewController.m */,
 				59E177D1226F04FC00E9625B /* Home.storyboard */,
 				59E177D2226F04FC00E9625B /* HomeViewController.h */,
+				59E177D0226F04FC00E9625B /* HomeViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
