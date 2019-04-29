@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		085CFA91B6A1AD99EABDFDCA /* libPods-ObjcProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6CE6A5765E05B6E4953F4 /* libPods-ObjcProjectsTests.a */; };
 		597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A22276DC2900820E26 /* DDLogFormatter.m */; };
+		597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A72276F82000820E26 /* UIScrollView+RefreshController.m */; };
+		597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418AA2276F84100820E26 /* RefreshBaseView.m */; };
+		597418AE2276F85800820E26 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418AD2276F85800820E26 /* RefreshHeader.m */; };
+		597418B12276F86200820E26 /* RefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418B02276F86200820E26 /* RefreshFooter.m */; };
+		597418B42276FAA800820E26 /* RefreshConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418B32276FAA800820E26 /* RefreshConstant.m */; };
 		59E17793226F04A500E9625B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E17791226F04A500E9625B /* Main.storyboard */; };
 		59E17795226F04A600E9625B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E17794226F04A600E9625B /* Assets.xcassets */; };
 		59E17798226F04A600E9625B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E17796226F04A600E9625B /* LaunchScreen.storyboard */; };
@@ -53,6 +58,16 @@
 		597418A02276D9DA00820E26 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		597418A12276DC2900820E26 /* DDLogFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDLogFormatter.h; sourceTree = "<group>"; };
 		597418A22276DC2900820E26 /* DDLogFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDLogFormatter.m; sourceTree = "<group>"; };
+		597418A62276F82000820E26 /* UIScrollView+RefreshController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+RefreshController.h"; sourceTree = "<group>"; };
+		597418A72276F82000820E26 /* UIScrollView+RefreshController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+RefreshController.m"; sourceTree = "<group>"; };
+		597418A92276F84100820E26 /* RefreshBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshBaseView.h; sourceTree = "<group>"; };
+		597418AA2276F84100820E26 /* RefreshBaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshBaseView.m; sourceTree = "<group>"; };
+		597418AC2276F85800820E26 /* RefreshHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshHeader.h; sourceTree = "<group>"; };
+		597418AD2276F85800820E26 /* RefreshHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshHeader.m; sourceTree = "<group>"; };
+		597418AF2276F86200820E26 /* RefreshFooter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshFooter.h; sourceTree = "<group>"; };
+		597418B02276F86200820E26 /* RefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshFooter.m; sourceTree = "<group>"; };
+		597418B22276FAA800820E26 /* RefreshConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshConstant.h; sourceTree = "<group>"; };
+		597418B32276FAA800820E26 /* RefreshConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshConstant.m; sourceTree = "<group>"; };
 		59E17788226F04A500E9625B /* ObjcProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E17792226F04A500E9625B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59E17794226F04A600E9625B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,6 +155,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		597418A42276F7D900820E26 /* Untils */ = {
+			isa = PBXGroup;
+			children = (
+				597418A52276F7D900820E26 /* Refresh */,
+			);
+			path = Untils;
+			sourceTree = "<group>";
+		};
+		597418A52276F7D900820E26 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				597418A62276F82000820E26 /* UIScrollView+RefreshController.h */,
+				597418A72276F82000820E26 /* UIScrollView+RefreshController.m */,
+				597418A92276F84100820E26 /* RefreshBaseView.h */,
+				597418AA2276F84100820E26 /* RefreshBaseView.m */,
+				597418AC2276F85800820E26 /* RefreshHeader.h */,
+				597418AD2276F85800820E26 /* RefreshHeader.m */,
+				597418AF2276F86200820E26 /* RefreshFooter.h */,
+				597418B02276F86200820E26 /* RefreshFooter.m */,
+				597418B22276FAA800820E26 /* RefreshConstant.h */,
+				597418B32276FAA800820E26 /* RefreshConstant.m */,
+			);
+			path = Refresh;
+			sourceTree = "<group>";
+		};
 		59E1777F226F04A500E9625B = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +209,7 @@
 				59E177C0226F04E000E9625B /* AppDelegate.m */,
 				59E177BE226F04E000E9625B /* MainTabBarController.h */,
 				59E177BD226F04DF00E9625B /* MainTabBarController.m */,
+				597418A42276F7D900820E26 /* Untils */,
 				59E177CF226F04FC00E9625B /* Home */,
 				59E177CB226F04FC00E9625B /* Community */,
 				59E177C3226F04FC00E9625B /* Message */,
@@ -227,8 +268,8 @@
 			isa = PBXGroup;
 			children = (
 				59E177CC226F04FC00E9625B /* Community.storyboard */,
-				59E177CD226F04FC00E9625B /* CommunityViewController.m */,
 				59E177CE226F04FC00E9625B /* CommunityViewController.h */,
+				59E177CD226F04FC00E9625B /* CommunityViewController.m */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -450,11 +491,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				59E177D8226F04FC00E9625B /* CommunityViewController.m in Sources */,
+				597418B42276FAA800820E26 /* RefreshConstant.m in Sources */,
 				597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */,
 				59E177C1226F04E000E9625B /* MainTabBarController.m in Sources */,
 				59E1779B226F04A600E9625B /* main.m in Sources */,
+				597418AE2276F85800820E26 /* RefreshHeader.m in Sources */,
 				59E177D3226F04FC00E9625B /* MessageViewController.m in Sources */,
+				597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */,
 				59E177C2226F04E000E9625B /* AppDelegate.m in Sources */,
+				597418B12276F86200820E26 /* RefreshFooter.m in Sources */,
+				597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */,
 				59E177D9226F04FC00E9625B /* HomeViewController.m in Sources */,
 				59E177D6226F04FC00E9625B /* ProfileViewController.m in Sources */,
 			);

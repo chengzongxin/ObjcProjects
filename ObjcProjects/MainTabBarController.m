@@ -58,7 +58,7 @@
     vc.title = title;
     // 设置图片
     
-    vc.tabBarItem.image = [[UIImage imageNamed:image] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    vc.tabBarItem.image = [[UIImage new] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 //    vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImageSTR] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     [self addChildViewController:vc];
