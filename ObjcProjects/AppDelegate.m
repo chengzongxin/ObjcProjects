@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
+#import <CocoaLumberjack.h>
+#import "DDLogFormatter.h"
 
 @interface AppDelegate ()
 
@@ -29,6 +31,21 @@
     [self.window makeKeyAndVisible];
     
     [[UINavigationBar appearance] setTintColor:UIColor.blackColor];
+    
+    
+
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDOSLogger sharedInstance]];
+    [[DDTTYLogger sharedInstance] setLogFormatter:[DDLogFormatter new]];
+    // And we also enable colors
+    [[DDTTYLogger sharedInstance] setColorsEnabled:YES];
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init]; // File Logger
+    fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+    
+    [DDLog addLogger:fileLogger];
     
     return YES;
 }

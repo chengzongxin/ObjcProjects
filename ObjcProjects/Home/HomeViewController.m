@@ -9,6 +9,8 @@
 #import "HomeViewController.h"
 #import "HBDNavigationBar.h"
 #import "UIViewController+HBD.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
+//#import <CocoaLumberjack/DDLogMacros.h>
 
 @interface HomeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *alphaLabel;
@@ -37,9 +39,35 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)buttonClick:(id)sender {
-    NSLog(@"%s",__FUNCTION__);
 }
 
+
+- (void)log{
+    
+    NSLog(@"%s",__FUNCTION__);
+    
+    // Convert from this:
+//    NSLog(@"Broken sprocket detected!");
+//    NSLog(@"User selected file:%@ withSize:%u", @"filePath", 12);
+    
+    // To this:
+    //    DDLogError(@"123231");
+    //    DDLogVerbose(@"213");
+    //
+//        DDLogError(@"Broken sprocket detected!");
+//        DDLogVerbose(@"User selected file:%@ withSize:%u", @"filePath", 123);
+    DDLogWarn(@"DDLogWarn");
+    DDLogVerbose(@"DDLogVerbose");
+    DDLogInfo(@"123");
+    DDLogError(@"123123");
+    
+    
+    //#define DDLogVError(frmt, avalist)   LOGV_MAYBE(NO,                LOG_LEVEL_DEF, DDLogFlagError,   0, nil, __PRETTY_FUNCTION__, frmt, avalist)
+    //#define DDLogVWarn(frmt, avalist)    LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagWarning, 0, nil, __PRETTY_FUNCTION__, frmt, avalist)
+    //#define DDLogVInfo(frmt, avalist)    LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagInfo,    0, nil, __PRETTY_FUNCTION__, frmt, avalist)
+    //#define DDLogVDebug(frmt, avalist)   LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagDebug,   0, nil, __PRETTY_FUNCTION__, frmt, avalist)
+    //#define DDLogVVerbose(frmt, avalist) LOGV_MAYBE(LOG_ASYNC_ENABLED, LOG_LEVEL_DEF, DDLogFlagVerbose, 0, nil, __PRETTY_FUNCTION__, frmt, avalist)
+}
 
 /**
  导航栏透明度
@@ -80,6 +108,7 @@
 //    self.hbd_barHidden = switchButton.isOn;
 //    [self hbd_setNeedsUpdateNavigationBar];
     self.navigationController.navigationBar.hidden = switchButton.isOn;
+    [self log];
 }
 
 + (UIColor *)randomColor
