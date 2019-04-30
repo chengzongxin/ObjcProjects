@@ -30,6 +30,7 @@
 		59E177D8226F04FC00E9625B /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E177CD226F04FC00E9625B /* CommunityViewController.m */; };
 		59E177D9226F04FC00E9625B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E177D0226F04FC00E9625B /* HomeViewController.m */; };
 		59E177DA226F04FC00E9625B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E177D1226F04FC00E9625B /* Home.storyboard */; };
+		59F5F8D222781E3900067A7B /* UIScrollView+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F5F8D122781E3900067A7B /* UIScrollView+Base.m */; };
 		89084D1F0BE649F464B9806C /* libPods-ObjcProjectsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A824B217BEAC5E581FC2070 /* libPods-ObjcProjectsUITests.a */; };
 		E3DF69DA31907938E4A50628 /* libPods-ObjcProjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B0DF0F441AC4C89835F41C /* libPods-ObjcProjects.a */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,8 @@
 		59E177D0226F04FC00E9625B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		59E177D1226F04FC00E9625B /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		59E177D2226F04FC00E9625B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		59F5F8D022781E3900067A7B /* UIScrollView+Base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Base.h"; sourceTree = "<group>"; };
+		59F5F8D122781E3900067A7B /* UIScrollView+Base.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Base.m"; sourceTree = "<group>"; };
 		5A824B217BEAC5E581FC2070 /* libPods-ObjcProjectsUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcProjectsUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80B6CE6A5765E05B6E4953F4 /* libPods-ObjcProjectsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcProjectsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9689FE02F74AB02230DF76A3 /* Pods-ObjcProjects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjects.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects.debug.xcconfig"; sourceTree = "<group>"; };
@@ -210,6 +213,7 @@
 				59E177BE226F04E000E9625B /* MainTabBarController.h */,
 				59E177BD226F04DF00E9625B /* MainTabBarController.m */,
 				597418A42276F7D900820E26 /* Untils */,
+				59F5F8CC2277EF6100067A7B /* BaseClass */,
 				59E177CF226F04FC00E9625B /* Home */,
 				59E177CB226F04FC00E9625B /* Community */,
 				59E177C3226F04FC00E9625B /* Message */,
@@ -284,6 +288,15 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		59F5F8CC2277EF6100067A7B /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				59F5F8D022781E3900067A7B /* UIScrollView+Base.h */,
+				59F5F8D122781E3900067A7B /* UIScrollView+Base.m */,
+			);
+			path = BaseClass;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -295,6 +308,7 @@
 				59E17784226F04A500E9625B /* Sources */,
 				59E17785226F04A500E9625B /* Frameworks */,
 				59E17786226F04A500E9625B /* Resources */,
+				583970D57A1ABAD850746094 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -417,6 +431,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		583970D57A1ABAD850746094 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7E5C11FD2AA0C131ED9E4F33 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -501,6 +537,7 @@
 				59E177C2226F04E000E9625B /* AppDelegate.m in Sources */,
 				597418B12276F86200820E26 /* RefreshFooter.m in Sources */,
 				597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */,
+				59F5F8D222781E3900067A7B /* UIScrollView+Base.m in Sources */,
 				59E177D9226F04FC00E9625B /* HomeViewController.m in Sources */,
 				59E177D6226F04FC00E9625B /* ProfileViewController.m in Sources */,
 			);

@@ -91,11 +91,11 @@
     if (self.status == RefreshStatusRefreshing) {
         newHeaderState = RefreshStatusRefreshing;
     }else{
-        if (offY <= - K_HEADER_MAXOFFY) {
+        if (offY <= - K_HEADER_MAXOFFY - self.superScrollView.adjustedContentInset.top) {
             //到达临界值时
             if (self.superScrollView.isDragging) {
                 //手指未松开，保持预备刷新状态
-                newHeaderState = RefreshStatusNormal;
+                newHeaderState = RefreshStatusPrepareRefresh;
             }else{
                 //手指松开，立即进入开始刷新状态
                 newHeaderState = RefreshStatusRefreshing;
@@ -171,11 +171,11 @@
             [[NSUserDefaults standardUserDefaults] synchronize];
             
             //当头部开始刷新时，为头部增加一部分高度，不过此时要先获取底部是否有增加的高度（因为此时尾部可能也在刷新）
-            UIEdgeInsets  insert =self.superScrollView.contentInset;
+            UIEdgeInsets  insert = self.superScrollView.contentInset;
             
             [UIView animateWithDuration:0.2 animations:^{
                 
-                [self.superScrollView setContentInset:UIEdgeInsetsMake(K_HEADER_MAXOFFY,0, insert.bottom,0)];
+                [self.superScrollView setContentInset:UIEdgeInsetsMake(K_HEADER_MAXOFFY + self.superScrollView.adjustedContentInset.top + insert.top ,0, 0,0)];
                 
             }];
             
@@ -222,7 +222,7 @@
     UIEdgeInsets insert = self.superScrollView.contentInset;
     
     [UIView animateWithDuration:0.3 animations:^{
-        [self.superScrollView setContentInset:UIEdgeInsetsMake(0,0, insert.bottom,0)];
+        [self.superScrollView setContentInset:UIEdgeInsetsMake(insert.top - self.superScrollView.adjustedContentInset.top,0, insert.bottom,0)];
     }];
     
     self.status = RefreshStatusNormal;

@@ -2,21 +2,29 @@ PODS:
   - CocoaLumberjack (3.5.2):
     - CocoaLumberjack/Core (= 3.5.2)
   - CocoaLumberjack/Core (3.5.2)
+  - DZNEmptyDataSet (1.8.1)
   - HBDNavigationBar (1.5.2)
+  - MJRefresh (3.1.16)
 
 DEPENDENCIES:
   - CocoaLumberjack
+  - DZNEmptyDataSet
   - HBDNavigationBar
+  - MJRefresh
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CocoaLumberjack
+    - DZNEmptyDataSet
     - HBDNavigationBar
+    - MJRefresh
 
 SPEC CHECKSUMS:
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   HBDNavigationBar: 1c470db0183d1aa8cbb4912196cfb10752eebcc8
+  MJRefresh: 7798e16e53a5ef7f332dd05b27664db4e29530fd
 
-PODFILE CHECKSUM: 203360a07d0f8f8f3703c801d27f98ea5878c42c
+PODFILE CHECKSUM: b85114b21dd50522444e15512d74f118109832cb
 
 COCOAPODS: 1.6.1

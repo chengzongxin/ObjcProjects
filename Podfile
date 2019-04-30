@@ -8,7 +8,9 @@ target 'ObjcProjects' do
   # Pods for ObjcProjects
   pod 'HBDNavigationBar'
   pod 'CocoaLumberjack'
-
+  pod 'DZNEmptyDataSet'
+  pod 'MJRefresh'
+  
   target 'ObjcProjectsTests' do
     inherit! :search_paths
     # Pods for testing
