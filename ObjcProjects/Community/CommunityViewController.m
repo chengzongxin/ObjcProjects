@@ -45,9 +45,26 @@
     self.tableView.tableFooterView = [UIView new];
     [tableView addRefreshWithTarget:self headerSelector:@selector(loadDatas) footerSelect:@selector(loadDatas)];
     
-//    self.tableView.mj_header = [MJRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadDatas)];
+    // 无数据
+    NSString *emptyText = @"没数据,刷新下";
+    // 无数据
+    NSMutableAttributedString *emptyAttrText = [[NSMutableAttributedString alloc] initWithString:@"亲,还是没有数据哦(づ￣3￣)づ╭❤～"];
+    [emptyAttrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(0, emptyAttrText.length)];
+    [emptyAttrText addAttribute:NSForegroundColorAttributeName value:UIColor.orangeColor range:NSMakeRange(0, 9)];
     
-    [tableView setupEmptyDataWithEmptyImage:nil emptyText:nil emptyAttrText:nil networkErrorImage:nil networkErrorText:nil networkErrorAttrText:nil offset:0 tapBlock:nil];
+    // 无网络
+    NSString *networkErrorText = @"没网了,重新刷新";
+    // 无网络
+    NSMutableAttributedString *networkErrorAttrText = [[NSMutableAttributedString alloc] initWithString:@"亲,现在没有网了哦(づ￣3￣)づ╭❤～"];
+    [networkErrorAttrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(0, networkErrorAttrText.length)];
+    [networkErrorAttrText addAttribute:NSForegroundColorAttributeName value:UIColor.orangeColor range:NSMakeRange(0, 9)];
+    
+    [tableView setupEmptyDataWithEmptyImage:nil emptyText:emptyText emptyAttrText:emptyAttrText networkErrorImage:nil networkErrorText:networkErrorText networkErrorAttrText:networkErrorAttrText offset:0 tapBlock:^{
+        NSLog(@"%s",__FUNCTION__);
+        [self loadDatas];
+    }];
+    
+    
 }
 
 - (void)changeBar{

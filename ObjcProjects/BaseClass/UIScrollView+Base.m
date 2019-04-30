@@ -53,6 +53,7 @@ static const int  KSpaceHeight = 10;
     self.emptyDataType = EmptyDataTypeNormal;
     self.emptyDataSetSource = self;
     self.emptyDataSetDelegate = self;
+    self.tapClock = tapBlock;
 }
 
 #pragma mark - DZNEmptyDataSetSource
