@@ -10,6 +10,7 @@ target 'ObjcProjects' do
   pod 'CocoaLumberjack'
   pod 'DZNEmptyDataSet'
   pod 'MJRefresh'
+  pod 'ReactiveObjC'
   
   target 'ObjcProjectsTests' do
     inherit! :search_paths

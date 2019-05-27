@@ -1,8 +1,8 @@
 //
-//  HomeViewController.h
-//  NavigationBarDemo
+//  HBDNaviBarViewController.h
+//  ObjcProjects
 //
-//  Created by Joe on 2019/4/23.
+//  Created by Joe on 2019/5/27.
 //  Copyright © 2019 Joe. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UITableViewController
+@interface HBDNaviBarViewController : UIViewController
 
 @end
 

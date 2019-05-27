@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		085CFA91B6A1AD99EABDFDCA /* libPods-ObjcProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6CE6A5765E05B6E4953F4 /* libPods-ObjcProjectsTests.a */; };
+		593CA09D229B8CF800F21A02 /* HBDNaviBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */; };
+		593CA0A0229B8D0400F21A02 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09F229B8D0400F21A02 /* RACViewController.m */; };
 		597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A22276DC2900820E26 /* DDLogFormatter.m */; };
 		597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A72276F82000820E26 /* UIScrollView+RefreshController.m */; };
 		597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418AA2276F84100820E26 /* RefreshBaseView.m */; };
@@ -56,6 +58,10 @@
 		21B0DF0F441AC4C89835F41C /* libPods-ObjcProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1F9DD19205A8F816C9C5DC /* Pods-ObjcProjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsTests.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsTests/Pods-ObjcProjectsTests.release.xcconfig"; sourceTree = "<group>"; };
 		532E86B8D65BDCBB4565C910 /* Pods-ObjcProjectsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsTests.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsTests/Pods-ObjcProjectsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		593CA09B229B8CF800F21A02 /* HBDNaviBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDNaviBarViewController.h; sourceTree = "<group>"; };
+		593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDNaviBarViewController.m; sourceTree = "<group>"; };
+		593CA09E229B8D0400F21A02 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
+		593CA09F229B8D0400F21A02 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
 		597418A02276D9DA00820E26 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		597418A12276DC2900820E26 /* DDLogFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDLogFormatter.h; sourceTree = "<group>"; };
 		597418A22276DC2900820E26 /* DDLogFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDLogFormatter.m; sourceTree = "<group>"; };
@@ -284,6 +290,10 @@
 				59E177D1226F04FC00E9625B /* Home.storyboard */,
 				59E177D2226F04FC00E9625B /* HomeViewController.h */,
 				59E177D0226F04FC00E9625B /* HomeViewController.m */,
+				593CA09B229B8CF800F21A02 /* HBDNaviBarViewController.h */,
+				593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */,
+				593CA09E229B8D0400F21A02 /* RACViewController.h */,
+				593CA09F229B8D0400F21A02 /* RACViewController.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -529,11 +539,13 @@
 				59E177D8226F04FC00E9625B /* CommunityViewController.m in Sources */,
 				597418B42276FAA800820E26 /* RefreshConstant.m in Sources */,
 				597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */,
+				593CA0A0229B8D0400F21A02 /* RACViewController.m in Sources */,
 				59E177C1226F04E000E9625B /* MainTabBarController.m in Sources */,
 				59E1779B226F04A600E9625B /* main.m in Sources */,
 				597418AE2276F85800820E26 /* RefreshHeader.m in Sources */,
 				59E177D3226F04FC00E9625B /* MessageViewController.m in Sources */,
 				597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */,
+				593CA09D229B8CF800F21A02 /* HBDNaviBarViewController.m in Sources */,
 				59E177C2226F04E000E9625B /* AppDelegate.m in Sources */,
 				597418B12276F86200820E26 /* RefreshFooter.m in Sources */,
 				597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */,
