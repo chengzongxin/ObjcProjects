@@ -7,26 +7,61 @@
 //
 
 #import "RACViewController.h"
+#import "RacView.h"
 
 @interface RACViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textFiled;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end
 
 @implementation RACViewController
 
+- (void)dealloc{
+    NSLog(@"%s",__FUNCTION__);
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self selfviewEvent];
+    
+    [self subviewEvent];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)selfviewEvent{
+    [self.textFiled.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+        NSLog(@"text field events %@",x);
+    }];
+    
+    self.button.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+        NSLog(@"button click %@",input);
+        return [RACSignal empty];
+    }];
+    
+//    [self.button setRac_command:[[RACCommand alloc] initWithEnabled:nil signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+//
+//    }];
 }
-*/
+
+
+
+- (void)subviewEvent{
+    RacView *view = [[RacView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+    view.backgroundColor = UIColor.grayColor;
+    [self.view addSubview:view];
+    
+    view.buttonSubject = [[RACSubject alloc] init];
+    @weakify(self);
+    [view.buttonSubject subscribeNext:^(id  _Nullable x) {
+        @strongify(self);
+        NSLog(@"racview button click %@",x);
+        [self.view endEditing:YES];
+    }];
+    
+    [view.textSubject subscribeNext:^(id  _Nullable x) {
+        NSLog(@"text event %@",x);
+    }];
+}
 
 @end

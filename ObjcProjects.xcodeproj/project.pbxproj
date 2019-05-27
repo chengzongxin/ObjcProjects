@@ -10,6 +10,7 @@
 		085CFA91B6A1AD99EABDFDCA /* libPods-ObjcProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6CE6A5765E05B6E4953F4 /* libPods-ObjcProjectsTests.a */; };
 		593CA09D229B8CF800F21A02 /* HBDNaviBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */; };
 		593CA0A0229B8D0400F21A02 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09F229B8D0400F21A02 /* RACViewController.m */; };
+		593CA0A3229B911800F21A02 /* RacView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA0A2229B911800F21A02 /* RacView.m */; };
 		597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A22276DC2900820E26 /* DDLogFormatter.m */; };
 		597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418A72276F82000820E26 /* UIScrollView+RefreshController.m */; };
 		597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418AA2276F84100820E26 /* RefreshBaseView.m */; };
@@ -62,6 +63,8 @@
 		593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDNaviBarViewController.m; sourceTree = "<group>"; };
 		593CA09E229B8D0400F21A02 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
 		593CA09F229B8D0400F21A02 /* RACViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACViewController.m; sourceTree = "<group>"; };
+		593CA0A1229B911800F21A02 /* RacView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RacView.h; sourceTree = "<group>"; };
+		593CA0A2229B911800F21A02 /* RacView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RacView.m; sourceTree = "<group>"; };
 		597418A02276D9DA00820E26 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		597418A12276DC2900820E26 /* DDLogFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDLogFormatter.h; sourceTree = "<group>"; };
 		597418A22276DC2900820E26 /* DDLogFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDLogFormatter.m; sourceTree = "<group>"; };
@@ -294,6 +297,8 @@
 				593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */,
 				593CA09E229B8D0400F21A02 /* RACViewController.h */,
 				593CA09F229B8D0400F21A02 /* RACViewController.m */,
+				593CA0A1229B911800F21A02 /* RacView.h */,
+				593CA0A2229B911800F21A02 /* RacView.m */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				59F5F8D222781E3900067A7B /* UIScrollView+Base.m in Sources */,
 				59E177D9226F04FC00E9625B /* HomeViewController.m in Sources */,
 				59E177D6226F04FC00E9625B /* ProfileViewController.m in Sources */,
+				593CA0A3229B911800F21A02 /* RacView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
