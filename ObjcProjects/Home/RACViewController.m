@@ -51,7 +51,7 @@
     view.backgroundColor = UIColor.grayColor;
     [self.view addSubview:view];
     
-    view.buttonSubject = [[RACSubject alloc] init];
+//    view.buttonSubject = [[RACSubject alloc] init];
     @weakify(self);
     [view.buttonSubject subscribeNext:^(id  _Nullable x) {
         @strongify(self);

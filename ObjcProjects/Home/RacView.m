@@ -29,6 +29,7 @@
     btn.backgroundColor = [UIColor orangeColor];
     [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
+    self.buttonSubject = [RACSubject new];
     
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(btn.frame) + 20, 100, 44)];
     textField.placeholder = @"rac text";
