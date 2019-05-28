@@ -12,6 +12,9 @@
 @interface RACViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textFiled;
 @property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIButton *button1;
+@property (weak, nonatomic) IBOutlet UIButton *button2;
+@property (weak, nonatomic) IBOutlet UILabel *label;
 
 @end
 
@@ -30,18 +33,39 @@
 }
 
 - (void)selfviewEvent{
-    [self.textFiled.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
-        NSLog(@"text field events %@",x);
-    }];
+//    [self.textFiled.rac_textSignal subscribeNext:^(NSString * _Nullable x) {
+//        NSLog(@"text field events %@",x);
+//    }];
     
     self.button.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
         NSLog(@"button click %@",input);
         return [RACSignal empty];
     }];
     
-//    [self.button setRac_command:[[RACCommand alloc] initWithEnabled:nil signalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
-//
+    RACSignal *textSingnal = self.textFiled.rac_textSignal;
+    RACSignal *button1Singnal = [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] map:^id _Nullable(__kindof UIControl * _Nullable value) {
+        NSLog(@"button1 = %@",value);
+        return [NSDate date];
+    }];
+    RACSignal *button2Singnal = [[self.button2 rac_signalForControlEvents:UIControlEventTouchUpInside] map:^id _Nullable(__kindof UIControl * _Nullable value) {
+        NSLog(@"button2 = %@",value);
+        return [NSDate date];
+    }];
+    
+//    RACSignal *merged = [RACSignal merge:@[textSingnal,button1Singnal,button2Singnal]];
+//    [merged subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"%@",x);
 //    }];
+    
+    RACSignal *combined = [RACSignal combineLatest:@[textSingnal,button1Singnal,button2Singnal]];
+    
+//    [combined subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"%@",x);
+//    }];
+    
+    RAC(self.label,text) = [combined reduceEach:^(id x,id y,id z){
+        return [NSString stringWithFormat:@"%@\n%@\n%@",x,y,z];
+    }];
 }
 
 
