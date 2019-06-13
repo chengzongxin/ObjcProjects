@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "DragingViewController.h"
 
 @interface HomeViewController ()
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"%@",indexPath);
+    if (indexPath.row == 2) {
+        [self.navigationController pushViewController:[DragingViewController new] animated:YES];
+    }
 }
 
 @end

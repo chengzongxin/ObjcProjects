@@ -17,6 +17,8 @@
 		597418AE2276F85800820E26 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418AD2276F85800820E26 /* RefreshHeader.m */; };
 		597418B12276F86200820E26 /* RefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418B02276F86200820E26 /* RefreshFooter.m */; };
 		597418B42276FAA800820E26 /* RefreshConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 597418B32276FAA800820E26 /* RefreshConstant.m */; };
+		59D7E44022B1F37300BB17EC /* DragingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D7E43F22B1F37300BB17EC /* DragingViewController.m */; };
+		59D7E44322B1F3A400BB17EC /* DragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59D7E44222B1F3A400BB17EC /* DragView.m */; };
 		59E17793226F04A500E9625B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E17791226F04A500E9625B /* Main.storyboard */; };
 		59E17795226F04A600E9625B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59E17794226F04A600E9625B /* Assets.xcassets */; };
 		59E17798226F04A600E9625B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E17796226F04A600E9625B /* LaunchScreen.storyboard */; };
@@ -78,6 +80,10 @@
 		597418B02276F86200820E26 /* RefreshFooter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshFooter.m; sourceTree = "<group>"; };
 		597418B22276FAA800820E26 /* RefreshConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RefreshConstant.h; sourceTree = "<group>"; };
 		597418B32276FAA800820E26 /* RefreshConstant.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RefreshConstant.m; sourceTree = "<group>"; };
+		59D7E43E22B1F37300BB17EC /* DragingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragingViewController.h; sourceTree = "<group>"; };
+		59D7E43F22B1F37300BB17EC /* DragingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragingViewController.m; sourceTree = "<group>"; };
+		59D7E44122B1F3A400BB17EC /* DragView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DragView.h; sourceTree = "<group>"; };
+		59D7E44222B1F3A400BB17EC /* DragView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DragView.m; sourceTree = "<group>"; };
 		59E17788226F04A500E9625B /* ObjcProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjcProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59E17792226F04A500E9625B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		59E17794226F04A600E9625B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -192,6 +198,37 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		59D7E43B22B1F33800BB17EC /* UIViewDraging */ = {
+			isa = PBXGroup;
+			children = (
+				59D7E43E22B1F37300BB17EC /* DragingViewController.h */,
+				59D7E43F22B1F37300BB17EC /* DragingViewController.m */,
+				59D7E44122B1F3A400BB17EC /* DragView.h */,
+				59D7E44222B1F3A400BB17EC /* DragView.m */,
+			);
+			path = UIViewDraging;
+			sourceTree = "<group>";
+		};
+		59D7E43C22B1F33800BB17EC /* HBDNavBarTest */ = {
+			isa = PBXGroup;
+			children = (
+				593CA09B229B8CF800F21A02 /* HBDNaviBarViewController.h */,
+				593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */,
+			);
+			path = HBDNavBarTest;
+			sourceTree = "<group>";
+		};
+		59D7E43D22B1F33800BB17EC /* RACTest */ = {
+			isa = PBXGroup;
+			children = (
+				593CA09E229B8D0400F21A02 /* RACViewController.h */,
+				593CA09F229B8D0400F21A02 /* RACViewController.m */,
+				593CA0A1229B911800F21A02 /* RacView.h */,
+				593CA0A2229B911800F21A02 /* RacView.m */,
+			);
+			path = RACTest;
+			sourceTree = "<group>";
+		};
 		59E1777F226F04A500E9625B = {
 			isa = PBXGroup;
 			children = (
@@ -293,12 +330,9 @@
 				59E177D1226F04FC00E9625B /* Home.storyboard */,
 				59E177D2226F04FC00E9625B /* HomeViewController.h */,
 				59E177D0226F04FC00E9625B /* HomeViewController.m */,
-				593CA09B229B8CF800F21A02 /* HBDNaviBarViewController.h */,
-				593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */,
-				593CA09E229B8D0400F21A02 /* RACViewController.h */,
-				593CA09F229B8D0400F21A02 /* RACViewController.m */,
-				593CA0A1229B911800F21A02 /* RacView.h */,
-				593CA0A2229B911800F21A02 /* RacView.m */,
+				59D7E43C22B1F33800BB17EC /* HBDNavBarTest */,
+				59D7E43D22B1F33800BB17EC /* RACTest */,
+				59D7E43B22B1F33800BB17EC /* UIViewDraging */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -546,7 +580,9 @@
 				597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */,
 				593CA0A0229B8D0400F21A02 /* RACViewController.m in Sources */,
 				59E177C1226F04E000E9625B /* MainTabBarController.m in Sources */,
+				59D7E44022B1F37300BB17EC /* DragingViewController.m in Sources */,
 				59E1779B226F04A600E9625B /* main.m in Sources */,
+				59D7E44322B1F3A400BB17EC /* DragView.m in Sources */,
 				597418AE2276F85800820E26 /* RefreshHeader.m in Sources */,
 				59E177D3226F04FC00E9625B /* MessageViewController.m in Sources */,
 				597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */,
