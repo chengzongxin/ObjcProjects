@@ -10,6 +10,8 @@
 #import "RefreshHeader.h"
 #import "RefreshFooter.h"
 
+#import "LoadMoreControl.h"
+
 NS_ASSUME_NONNULL_BEGIN
 //刷新状态枚举
 
@@ -17,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) RefreshHeader *header;
 @property (strong, nonatomic) RefreshFooter *footer;
+
+@property (strong, nonatomic) LoadMoreControl *loadMore;
 
 - (void)addRefreshWithTarget:(id)target headerSelector:(SEL)headerSelector footerSelect:(SEL)footerSelect;
 // 开始刷新

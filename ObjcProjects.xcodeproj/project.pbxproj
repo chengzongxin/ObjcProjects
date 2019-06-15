@@ -37,6 +37,7 @@
 		59E177DA226F04FC00E9625B /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59E177D1226F04FC00E9625B /* Home.storyboard */; };
 		59F5F8D222781E3900067A7B /* UIScrollView+Base.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F5F8D122781E3900067A7B /* UIScrollView+Base.m */; };
 		89084D1F0BE649F464B9806C /* libPods-ObjcProjectsUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A824B217BEAC5E581FC2070 /* libPods-ObjcProjectsUITests.a */; };
+		D8479BE222B55812003C04FE /* LoadMoreControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D8479BE122B55812003C04FE /* LoadMoreControl.m */; };
 		E3DF69DA31907938E4A50628 /* libPods-ObjcProjects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21B0DF0F441AC4C89835F41C /* libPods-ObjcProjects.a */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +121,8 @@
 		A332B94BB73F8CA2E42A3265 /* Pods-ObjcProjects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjects.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects.release.xcconfig"; sourceTree = "<group>"; };
 		B8E76F56DA4C5D8AE4486A12 /* Pods-ObjcProjectsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsUITests.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsUITests/Pods-ObjcProjectsUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D22A28290E2C3AF59ABF8588 /* Pods-ObjcProjectsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsUITests.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsUITests/Pods-ObjcProjectsUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D8479BE022B55812003C04FE /* LoadMoreControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreControl.h; sourceTree = "<group>"; };
+		D8479BE122B55812003C04FE /* LoadMoreControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 				597418B02276F86200820E26 /* RefreshFooter.m */,
 				597418B22276FAA800820E26 /* RefreshConstant.h */,
 				597418B32276FAA800820E26 /* RefreshConstant.m */,
+				D8479BE022B55812003C04FE /* LoadMoreControl.h */,
+				D8479BE122B55812003C04FE /* LoadMoreControl.m */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -486,16 +491,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${PODS_ROOT}/Target Support Files/Pods-ObjcProjects/Pods-ObjcProjects-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -575,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8479BE222B55812003C04FE /* LoadMoreControl.m in Sources */,
 				59E177D8226F04FC00E9625B /* CommunityViewController.m in Sources */,
 				597418B42276FAA800820E26 /* RefreshConstant.m in Sources */,
 				597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */,

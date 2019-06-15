@@ -11,7 +11,7 @@
 #import "RefreshFooter.h"
 #import "RefreshConstant.h"
 #import <objc/runtime.h>
-
+#import <objc/message.h>
 @implementation UIScrollView (RefreshController)
 
 
@@ -26,11 +26,19 @@
     }
     //添加尾部刷新
     if (footerSelect) {
-        RefreshFooter *footer = [[RefreshFooter alloc] initWithFrame:CGRectMake(0, self.contentSize.height, self.bounds.size.width, K_FOOTER_HEIGHT)];
-        footer.target = target;
-        footer.selector = headerSelector;
-        [self addSubview:footer];
-        self.footer = footer;
+        LoadMoreControl *loadMore = [[LoadMoreControl alloc] initWithFrame:CGRectMake(0, 100, self.bounds.size.width, 88) surplusCount:2];
+        [self addSubview:loadMore];
+        loadMore.onLoad = ^{
+            int (*action)(id,SEL,int) = (int(*)(id,SEL,int)) objc_msgSend;
+            action(target,footerSelect,0);
+        };
+        self.loadMore = loadMore;
+        
+//        RefreshFooter *footer = [[RefreshFooter alloc] initWithFrame:CGRectMake(0, self.contentSize.height, self.bounds.size.width, K_FOOTER_HEIGHT)];
+//        footer.target = target;
+//        footer.selector = headerSelector;
+//        [self addSubview:footer];
+//        self.footer = footer;
     }
 }
 
@@ -40,6 +48,7 @@
 
 - (void)stopRefresh{
     [self.header stopRefresh];
+    [self.loadMore endLoading];
 }
 
 - (void)setHeader:(RefreshHeader *)header{
@@ -55,6 +64,14 @@
 }
 
 - (RefreshFooter *)footer{
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setLoadMore:(LoadMoreControl *)loadMore{
+    objc_setAssociatedObject(self,@selector(loadMore),loadMore,OBJC_ASSOCIATION_RETAIN);
+}
+
+- (LoadMoreControl *)loadMore{
     return objc_getAssociatedObject(self, _cmd);
 }
 

@@ -11,6 +11,7 @@ target 'ObjcProjects' do
   pod 'DZNEmptyDataSet'
   pod 'MJRefresh'
   pod 'ReactiveObjC'
+  pod 'Masonry'
   
   target 'ObjcProjectsTests' do
     inherit! :search_paths
