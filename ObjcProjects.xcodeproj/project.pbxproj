@@ -297,8 +297,8 @@
 		59E177C3226F04FC00E9625B /* Message */ = {
 			isa = PBXGroup;
 			children = (
-				59E177C4226F04FC00E9625B /* MessageViewController.m */,
 				59E177C5226F04FC00E9625B /* MessageViewController.h */,
+				59E177C4226F04FC00E9625B /* MessageViewController.m */,
 				59E177C6226F04FC00E9625B /* Message.storyboard */,
 			);
 			path = Message;
