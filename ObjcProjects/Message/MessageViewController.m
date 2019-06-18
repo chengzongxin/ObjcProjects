@@ -11,9 +11,8 @@
 #import "UIScrollView+RefreshController.h"
 
 @interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
-{
-    NSMutableArray *_datas;
-}
+
+@property (strong, nonatomic) NSMutableArray *datas;
 @property (strong,nonatomic) UITableView *tableView;
 
 @end
@@ -24,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _datas = [NSMutableArray arrayWithObjects:@"123",@"123",@"123",@"123",@"123",@"123",@"123", nil];
+    _datas = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7", nil];
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
     self.tableView.dataSource = self;
@@ -32,10 +31,11 @@
     [self.view addSubview:self.tableView];
     
     [self.tableView addRefreshWithTarget:self headerSelector:@selector(headerRefresh) footerSelect:@selector(footerRefresh)];
+//    [self.tableView addRefreshWithTarget:self headerSelector:nil footerSelect:@selector(footerRefresh)];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"add" style:UIBarButtonItemStylePlain target:self action:@selector(_add)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"add" style:UIBarButtonItemStylePlain target:self action:@selector(_add)];
     
 //    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -88, self.view.frame.size.width, 88)];
 //    header.backgroundColor = UIColor.orangeColor;
@@ -70,28 +70,20 @@
 - (void)headerRefresh{
     NSLog(@"%s",__FUNCTION__);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self.tableView stopRefresh];
+        [self.datas removeAllObjects];
+        [self.datas addObjectsFromArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]];
+        [self.tableView reloadData];
+        [self.tableView headerStopRefresh];
     });
 }
 
 - (void)footerRefresh{
     NSLog(@"%s",__FUNCTION__);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self _add];
-        [self.tableView stopRefresh];
+        [self.datas addObjectsFromArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]];
+        [self.tableView reloadData];
+        [self.tableView footerStopRefresh];
     });
-}
-
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-    
-    NSLog(@"%s",__FUNCTION__);
-}
-
-- (void)_add{
-    [_datas addObject:@"123"];
-    [self.tableView reloadData];
 }
 
 

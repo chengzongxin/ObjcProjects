@@ -155,8 +155,12 @@
             
             //向之前绑定的对象传递开始刷新消息
             //            objc_msgSend(self.target, self.selector);
-            int (*action)(id,SEL,int) = (int(*)(id,SEL,int)) objc_msgSend;
-            action(self.target,self.selector,0);
+            if (self.refreshingBlock) {
+                self.refreshingBlock();
+            }else{
+                int (*action)(id,SEL,int) = (int(*)(id,SEL,int)) objc_msgSend;
+                action(self.target,self.selector,0);
+            }
             
             //保存刷新的时间
             //实例化一个NSDateFormatter对象

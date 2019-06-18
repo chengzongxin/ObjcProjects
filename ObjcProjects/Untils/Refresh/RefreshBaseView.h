@@ -23,6 +23,9 @@ typedef enum : NSUInteger {
     
 } RefreshStatus;
 
+/** 进入刷新状态的回调 */
+typedef void (^RefreshingBlock)(void);
+
 @interface RefreshBaseView : UIView
 
 @property (assign, nonatomic) RefreshStatus status;
@@ -34,6 +37,13 @@ typedef enum : NSUInteger {
 @property (weak, nonatomic) id target;
 
 @property (assign, nonatomic) SEL selector;
+
+@property (copy, nonatomic) RefreshingBlock refreshingBlock;
+
+// 开始刷新
+-(void)startRefresh;
+// 结束刷新
+-(void)stopRefresh;
 
 @end
 

@@ -95,7 +95,7 @@
         }
         
         self.tableView.isLoading = NO;
-        [self.tableView stopRefresh];
+        [self.tableView headerStartRefresh];
         [self.tableView reloadData];
         [self.tableView reloadEmptyDataSet];
     });

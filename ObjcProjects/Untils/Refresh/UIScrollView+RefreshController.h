@@ -22,11 +22,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) LoadMoreControl *loadMore;
 
-- (void)addRefreshWithTarget:(id)target headerSelector:(SEL)headerSelector footerSelect:(SEL)footerSelect;
+- (void)addRefreshWithHeaderBlock:(RefreshingBlock)headerBlock footerBlock:(RefreshingBlock)footerBlock;
+
+- (void)addRefreshWithTarget:(id)target headerSelector:(nullable SEL)headerSelector footerSelect:(nullable SEL)footerSelect;
 // 开始刷新
--(void)startRefresh;
+- (void)headerStartRefresh;
 // 结束刷新
--(void)stopRefresh;
+- (void)headerStopRefresh;
+
+- (void)footerStartRefresh;
+
+- (void)footerStopRefresh;
 @end
 
 NS_ASSUME_NONNULL_END
