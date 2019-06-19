@@ -73,52 +73,45 @@
     [self addSubview:_imageView];
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
+//-----------------------更新头部刷新状态-------------------------
+- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change{
+    [super scrollViewContentOffsetDidChange:change];
     
-    //记录父视图
-    self.superScrollView = (UIScrollView *)newSuperview;
-    //添加KVO监听父视图的偏移量
-    [newSuperview addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew context:nil];
-    [newSuperview addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
-    
-    NSLog(@"%@,%@,%@",keyPath,object,change);
-    if ([keyPath isEqualToString:@"contentSize"]) {
-        self.transform = CGAffineTransformMakeTranslation(0, self.superScrollView.contentSize.height);
-    }else if ([keyPath isEqualToString:@"contentOffset"]) {
-        //-----------------------更新头部刷新状态-------------------------
-        RefreshStatus   newHeaderState;
-        //获取父视图偏移量
-        CGFloat offY = self.superScrollView.contentOffset.y;
-        if (self.status == RefreshStatusRefreshing) {
-            newHeaderState = RefreshStatusRefreshing;
-        }else{
-            
-            if (offY + self.superScrollView.adjustedContentInset.top > K_FOOTER_MAXOFFY) {
-                //到达临界值时
-                if (self.superScrollView.isDragging) {
-                    //手指未松开，保持预备刷新状态
-                    newHeaderState = RefreshStatusPrepareRefresh;
-                }else{
-                    //手指松开，立即进入开始刷新状态
-                    newHeaderState = RefreshStatusRefreshing;
-                }
-            }else{
-                //小余临界值，正常状态
-                newHeaderState = RefreshStatusNormal;
-            }
-        }
+    RefreshStatus   newHeaderState;
+    //获取父视图偏移量
+    CGFloat offY = self.superScrollView.contentOffset.y;
+    if (self.status == RefreshStatusRefreshing) {
+        newHeaderState = RefreshStatusRefreshing;
+    }else{
         
-        //如果头部刷新状态发生了改变就更新
-        if (self.status != newHeaderState)
-        {
-            self.status = newHeaderState;
+        if (offY + self.superScrollView.adjustedContentInset.top > K_FOOTER_MAXOFFY) {
+            //到达临界值时
+            if (self.superScrollView.isDragging) {
+                //手指未松开，保持预备刷新状态
+                newHeaderState = RefreshStatusPrepareRefresh;
+            }else{
+                //手指松开，立即进入开始刷新状态
+                newHeaderState = RefreshStatusRefreshing;
+            }
+        }else{
+            //小余临界值，正常状态
+            newHeaderState = RefreshStatusNormal;
         }
     }
+    
+    //如果头部刷新状态发生了改变就更新
+    if (self.status != newHeaderState)
+    {
+        self.status = newHeaderState;
+    }
 }
+
+// contentsize 改变
+- (void)scrollViewContentSizeDidChange:(NSDictionary *)change{
+    [super scrollViewContentSizeDidChange:change];
+    self.transform = CGAffineTransformMakeTranslation(0, self.superScrollView.contentSize.height);
+}
+
 
 - (void)setStatus:(RefreshStatus)status{
     [super setStatus:status];

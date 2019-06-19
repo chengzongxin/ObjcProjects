@@ -30,4 +30,11 @@ NSString *const K_FOOT_PREPARE_TITLE = @"松开立即加载更多";
 
 NSString *const K_FOOT_START_TITLE = @"正在加载更多数据";
 
+NSString *const RefreshKeyPathContentOffset = @"contentOffset";
+
+NSString *const RefreshKeyPathContentSize = @"contentSize";
+
+NSString *const RefreshKeyPathContentInset = @"contentInset";
+
+
 @end

@@ -71,21 +71,12 @@
     [self addSubview:_imageView];
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview{
-    [super willMoveToSuperview:newSuperview];
-    
-    //记录父视图
-    self.superScrollView = (UIScrollView *)newSuperview;
-    //添加KVO监听父视图的偏移量
-    [newSuperview addObserver:self forKeyPath:@"contentOffset" options:NSKeyValueObservingOptionNew context:nil];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+//-----------------------更新头部刷新状态-------------------------
+- (void)scrollViewContentOffsetDidChange:(NSDictionary *)change{
+    [super scrollViewContentOffsetDidChange:change];
     //获取父视图偏移量
     CGFloat offY = self.superScrollView.contentOffset.y;
     //定义新的头，尾刷新状态（待会要判断状态是否发生改变，没改变就不用更新了，为什么要这样呢，后面会知道）
-    
-    //-----------------------更新头部刷新状态-------------------------
     RefreshStatus   newHeaderState;
     self.superScrollViewContentOffY = offY;  //此处用set方法设置contentOffY,方便子类调用set方法，做其他处理
     if (self.status == RefreshStatusRefreshing) {
@@ -112,6 +103,7 @@
         self.status = newHeaderState;
     }
 }
+
 
 - (void)setStatus:(RefreshStatus)status{
     [super setStatus:status];

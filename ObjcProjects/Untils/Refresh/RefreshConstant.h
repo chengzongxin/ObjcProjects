@@ -32,6 +32,12 @@ FOUNDATION_EXPORT NSString *const K_FOOT_PREPARE_TITLE;
 
 FOUNDATION_EXPORT NSString *const K_FOOT_START_TITLE;
 
+FOUNDATION_EXPORT NSString *const RefreshKeyPathContentOffset;
+
+FOUNDATION_EXPORT NSString *const RefreshKeyPathContentSize;
+
+FOUNDATION_EXPORT NSString *const RefreshKeyPathContentInset;
+
 @end
 
 NS_ASSUME_NONNULL_END
