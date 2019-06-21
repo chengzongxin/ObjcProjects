@@ -29,7 +29,7 @@
     NSString *topic2 = @"/zong";
     NSString *topic3 = @"/xin";
     
-    [[MQTTManager sharedInstance] subscribeTopics:@[topic1,topic2,topic3] identify:NSStringFromClass([self class]) type:MQTTAuthTypePublic qos:MQTTQosLevelExactlyOnce cleanSession:YES subscribeHandler:^(NSString *topic, NSError *error, NSArray<NSNumber *> *gQoss) {
+    [[MQTTManager sharedInstance] subscribeTopics:@[topic1,topic2,topic3] subscribeHandler:^(NSString *topic, NSError *error, NSArray<NSNumber *> *gQoss) {
         NSLog(@"\n\n[topic]:%@\n[error]:%@",topic,error);
     } dataHandler:^(MQTTBaseModel *data, NSString *topic) {
         NSLog(@"\n\n[topic]:%@\n[data]:%@",topic,data.mj_JSONString);

@@ -59,10 +59,18 @@
 #pragma mark - Pirvate
 
 #pragma mark - Public
+- (void)subscribeTopic:(NSString *)topic subscribeHandler:(MTFYMQTTSubscribeHandler)subscribeHandler dataHandler:(MTFYMQTTHandle)handler{
+    [self subscribeTopic:topic identify:[NSDate date].description type:MQTTAuthTypePublic qos:MQTTQosLevelExactlyOnce cleanSession:YES subscribeHandler:subscribeHandler dataHandler:handler];
+}
+
 /// 订阅主题
 - (void)subscribeTopic:(NSString *)topic identify:(NSString *)identify type:(MQTTAuthType)type qos:(MQTTQosLevel)level cleanSession:(BOOL)cleanSession subscribeHandler:(MTFYMQTTSubscribeHandler)subscribeHandler dataHandler:(MTFYMQTTHandle)handler {
     MQTTConfig *config = [self creatMQTTConfig:type cleanSession:cleanSession];
     [self.mqttUtil subscribeTopic:topic identify:identify qos:level config:config subscribeHandler:subscribeHandler dataHandler:handler];
+}
+
+- (void)subscribeTopics:(NSArray<NSString *> *)topics subscribeHandler:(MTFYMQTTSubscribeHandler)subscribeHandler dataHandler:(MTFYMQTTHandle)handler{
+    [self subscribeTopics:topics identify:[NSDate date].description type:MQTTAuthTypePublic qos:MQTTQosLevelExactlyOnce cleanSession:YES subscribeHandler:subscribeHandler dataHandler:handler];
 }
 
 /// 订阅多个主题

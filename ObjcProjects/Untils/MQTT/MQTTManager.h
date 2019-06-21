@@ -19,6 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 单例
 + (MQTTManager *)sharedInstance;
 
+/**
+ 订阅单个主题
+ 
+ @param topic 主题
+ @param subscribeHandler 订阅回调
+ @param handler 消息回调
+ */
+- (void)subscribeTopic:(NSString *)topic
+      subscribeHandler:(nullable MTFYMQTTSubscribeHandler)subscribeHandler
+           dataHandler:(nullable MTFYMQTTHandle)handler;
+
 
 /**
  订阅单个主题
@@ -38,6 +49,17 @@ NS_ASSUME_NONNULL_BEGIN
           cleanSession:(BOOL)cleanSession
       subscribeHandler:(nullable MTFYMQTTSubscribeHandler)subscribeHandler
            dataHandler:(nullable MTFYMQTTHandle)handler;
+
+/**
+ 订阅多个主题
+ 
+ @param topics 主题
+ @param subscribeHandler 订阅回调
+ @param handler 消息回调
+ */
+- (void)subscribeTopics:(NSArray <NSString *> *)topics
+       subscribeHandler:(nullable MTFYMQTTSubscribeHandler)subscribeHandler
+            dataHandler:(nullable MTFYMQTTHandle)handler;
 
 /**
  订阅多个主题
