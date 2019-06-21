@@ -17,14 +17,33 @@
                     <view key="view" contentMode="scaleToFill" id="NuW-zM-TWb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JPZ-3k-xHy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dyV-pO-ng2" id="BZ2-EO-Hev"/>
+                                    <outlet property="delegate" destination="dyV-pO-ng2" id="nGv-qd-fBX"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hpy-pe-sbh" firstAttribute="trailing" secondItem="JPZ-3k-xHy" secondAttribute="trailing" id="5AP-hW-6ca"/>
+                            <constraint firstItem="JPZ-3k-xHy" firstAttribute="leading" secondItem="hpy-pe-sbh" secondAttribute="leading" id="Q8t-ZR-sgd"/>
+                            <constraint firstItem="JPZ-3k-xHy" firstAttribute="top" secondItem="hpy-pe-sbh" secondAttribute="top" id="Uff-fW-PUQ"/>
+                            <constraint firstItem="hpy-pe-sbh" firstAttribute="bottom" secondItem="JPZ-3k-xHy" secondAttribute="bottom" id="X6T-Sr-ZeW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="hpy-pe-sbh"/>
                     </view>
                     <navigationItem key="navigationItem" id="XkQ-15-wNM"/>
+                    <connections>
+                        <outlet property="tableView" destination="JPZ-3k-xHy" id="kAg-ZU-xe8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I3j-TE-wRu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080.8" y="82.3088455772114"/>
+            <point key="canvasLocation" x="1086" y="742"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CWO-i1-3xH">

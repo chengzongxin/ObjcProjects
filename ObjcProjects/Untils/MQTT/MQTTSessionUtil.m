@@ -87,7 +87,7 @@
 
 /// 订阅多个主题
 - (void)subscribeTopics:(NSArray <NSString *> *)topics identify:(NSString *)identify qos:(MQTTQosLevel)level config:(MQTTConfig *)config subscribeHandler:(MTFYMQTTSubscribeHandler)subscribeHandler dataHandler:(MTFYMQTTHandle)handler{
-//    NSLog(@"************订阅主题************:\n topic: %@\n qosLevel: %d\n host: %@\n port: %d\n cliendId: %@\n username: %@\n password:%@\n timeout: %f\n", topics, level, config.host, config.port, config.clientId, config.userName, config.passWord, config.timeout);
+    NSLog(@"\n************订阅主题************:\n topic: %@\n qosLevel: %d\n host: %@\n port: %d\n cliendId: %@\n username: %@\n password:%@\n timeout: %f\n", topics, level, config.host, config.port, config.clientId, config.userName, config.passWord, config.timeout);
 
     MQTTUtilModel *model = [self fetchModelWithIdentify:identify config:config];
     if (!model) {

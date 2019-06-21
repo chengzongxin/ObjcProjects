@@ -7,8 +7,13 @@
 //
 
 #import "ProfileViewController.h"
+#import "MQTTManager.h"
+#import <MJExtension.h>
 
-@interface ProfileViewController ()
+@interface ProfileViewController () <UITableViewDataSource,UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *datas;
 
 @end
 
@@ -17,18 +22,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _datas = [NSMutableArray array];
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    NSString *topic1 = @"/cheng";
+    NSString *topic2 = @"/zong";
+    NSString *topic3 = @"/xin";
+    
+    [[MQTTManager sharedInstance] subscribeTopics:@[topic1,topic2,topic3] identify:NSStringFromClass([self class]) type:MQTTAuthTypePublic qos:MQTTQosLevelExactlyOnce cleanSession:YES subscribeHandler:^(NSString *topic, NSError *error, NSArray<NSNumber *> *gQoss) {
+        NSLog(@"\n\n[topic]:%@\n[error]:%@",topic,error);
+    } dataHandler:^(MQTTBaseModel *data, NSString *topic) {
+        NSLog(@"\n\n[topic]:%@\n[data]:%@",topic,data.mj_JSONString);
+        [self.datas addObject:data.mj_JSONString];
+        [self.tableView reloadData];
+    }];
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.datas.count;
 }
-*/
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
+    cell.textLabel.text = self.datas[indexPath.row];
+    return cell;
+}
 
 @end
