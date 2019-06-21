@@ -59,10 +59,10 @@
     //
     //        DDLogError(@"Broken sprocket detected!");
     //        DDLogVerbose(@"User selected file:%@ withSize:%u", @"filePath", 123);
-    DDLogWarn(@"DDLogWarn");
-    DDLogVerbose(@"DDLogVerbose");
-    DDLogInfo(@"123");
-    DDLogError(@"123123");
+//    DDLogWarn(@"DDLogWarn");
+//    DDLogVerbose(@"DDLogVerbose");
+//    DDLogInfo(@"123");
+//    DDLogError(@"123123");
     
     
     //#define DDLogVError(frmt, avalist)   LOGV_MAYBE(NO,                LOG_LEVEL_DEF, DDLogFlagError,   0, nil, __PRETTY_FUNCTION__, frmt, avalist)

@@ -3,11 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		085CFA91B6A1AD99EABDFDCA /* libPods-ObjcProjectsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 80B6CE6A5765E05B6E4953F4 /* libPods-ObjcProjectsTests.a */; };
+		592D1B9D22BCC328008F275E /* MQTTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1B9022BCC328008F275E /* MQTTConfig.m */; };
+		592D1BA122BCC328008F275E /* MQTTBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1B9522BCC328008F275E /* MQTTBaseModel.m */; };
+		592D1BA222BCC328008F275E /* MQTTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1B9622BCC328008F275E /* MQTTManager.m */; };
+		592D1BA422BCC328008F275E /* MQTTUtilModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1B9822BCC328008F275E /* MQTTUtilModel.m */; };
+		592D1BA522BCC328008F275E /* MQTTSessionUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1B9C22BCC328008F275E /* MQTTSessionUtil.m */; };
+		592D1BA822BCC3F4008F275E /* MQTTConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 592D1BA722BCC3F4008F275E /* MQTTConst.m */; };
 		593CA09D229B8CF800F21A02 /* HBDNaviBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */; };
 		593CA0A0229B8D0400F21A02 /* RACViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA09F229B8D0400F21A02 /* RACViewController.m */; };
 		593CA0A3229B911800F21A02 /* RacView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593CA0A2229B911800F21A02 /* RacView.m */; };
@@ -62,6 +68,18 @@
 		21B0DF0F441AC4C89835F41C /* libPods-ObjcProjects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjcProjects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1F9DD19205A8F816C9C5DC /* Pods-ObjcProjectsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsTests.release.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsTests/Pods-ObjcProjectsTests.release.xcconfig"; sourceTree = "<group>"; };
 		532E86B8D65BDCBB4565C910 /* Pods-ObjcProjectsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjcProjectsTests.debug.xcconfig"; path = "Target Support Files/Pods-ObjcProjectsTests/Pods-ObjcProjectsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		592D1B8F22BCC328008F275E /* MQTTUtilModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTUtilModel.h; sourceTree = "<group>"; };
+		592D1B9022BCC328008F275E /* MQTTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTConfig.m; sourceTree = "<group>"; };
+		592D1B9222BCC328008F275E /* MQTTSessionUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTSessionUtil.h; sourceTree = "<group>"; };
+		592D1B9522BCC328008F275E /* MQTTBaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTBaseModel.m; sourceTree = "<group>"; };
+		592D1B9622BCC328008F275E /* MQTTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTManager.m; sourceTree = "<group>"; };
+		592D1B9822BCC328008F275E /* MQTTUtilModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTUtilModel.m; sourceTree = "<group>"; };
+		592D1B9922BCC328008F275E /* MQTTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTConfig.h; sourceTree = "<group>"; };
+		592D1B9A22BCC328008F275E /* MQTTBaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTBaseModel.h; sourceTree = "<group>"; };
+		592D1B9B22BCC328008F275E /* MQTTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTManager.h; sourceTree = "<group>"; };
+		592D1B9C22BCC328008F275E /* MQTTSessionUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionUtil.m; sourceTree = "<group>"; };
+		592D1BA622BCC3F4008F275E /* MQTTConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQTTConst.h; sourceTree = "<group>"; };
+		592D1BA722BCC3F4008F275E /* MQTTConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTTConst.m; sourceTree = "<group>"; };
 		593CA09B229B8CF800F21A02 /* HBDNaviBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HBDNaviBarViewController.h; sourceTree = "<group>"; };
 		593CA09C229B8CF800F21A02 /* HBDNaviBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HBDNaviBarViewController.m; sourceTree = "<group>"; };
 		593CA09E229B8D0400F21A02 /* RACViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACViewController.h; sourceTree = "<group>"; };
@@ -176,10 +194,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		592D1B8E22BCC328008F275E /* MQTT */ = {
+			isa = PBXGroup;
+			children = (
+				592D1B9B22BCC328008F275E /* MQTTManager.h */,
+				592D1B9622BCC328008F275E /* MQTTManager.m */,
+				592D1B9222BCC328008F275E /* MQTTSessionUtil.h */,
+				592D1B9C22BCC328008F275E /* MQTTSessionUtil.m */,
+				592D1B8F22BCC328008F275E /* MQTTUtilModel.h */,
+				592D1B9822BCC328008F275E /* MQTTUtilModel.m */,
+				592D1B9922BCC328008F275E /* MQTTConfig.h */,
+				592D1B9022BCC328008F275E /* MQTTConfig.m */,
+				592D1B9A22BCC328008F275E /* MQTTBaseModel.h */,
+				592D1B9522BCC328008F275E /* MQTTBaseModel.m */,
+				592D1BA622BCC3F4008F275E /* MQTTConst.h */,
+				592D1BA722BCC3F4008F275E /* MQTTConst.m */,
+			);
+			path = MQTT;
+			sourceTree = "<group>";
+		};
 		597418A42276F7D900820E26 /* Untils */ = {
 			isa = PBXGroup;
 			children = (
 				597418A52276F7D900820E26 /* Refresh */,
+				592D1B8E22BCC328008F275E /* MQTT */,
 			);
 			path = Untils;
 			sourceTree = "<group>";
@@ -576,6 +614,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8479BE222B55812003C04FE /* LoadMoreControl.m in Sources */,
+				592D1B9D22BCC328008F275E /* MQTTConfig.m in Sources */,
 				59E177D8226F04FC00E9625B /* CommunityViewController.m in Sources */,
 				597418B42276FAA800820E26 /* RefreshConstant.m in Sources */,
 				597418A32276DC2900820E26 /* DDLogFormatter.m in Sources */,
@@ -583,18 +622,23 @@
 				59E177C1226F04E000E9625B /* MainTabBarController.m in Sources */,
 				59D7E44022B1F37300BB17EC /* DragingViewController.m in Sources */,
 				59E1779B226F04A600E9625B /* main.m in Sources */,
+				592D1BA522BCC328008F275E /* MQTTSessionUtil.m in Sources */,
 				59D7E44322B1F3A400BB17EC /* DragView.m in Sources */,
 				597418AE2276F85800820E26 /* RefreshHeader.m in Sources */,
 				59E177D3226F04FC00E9625B /* MessageViewController.m in Sources */,
+				592D1BA822BCC3F4008F275E /* MQTTConst.m in Sources */,
 				597418AB2276F84100820E26 /* RefreshBaseView.m in Sources */,
 				593CA09D229B8CF800F21A02 /* HBDNaviBarViewController.m in Sources */,
 				59E177C2226F04E000E9625B /* AppDelegate.m in Sources */,
+				592D1BA222BCC328008F275E /* MQTTManager.m in Sources */,
+				592D1BA422BCC328008F275E /* MQTTUtilModel.m in Sources */,
 				597418B12276F86200820E26 /* RefreshFooter.m in Sources */,
 				597418A82276F82000820E26 /* UIScrollView+RefreshController.m in Sources */,
 				59F5F8D222781E3900067A7B /* UIScrollView+Base.m in Sources */,
 				59E177D9226F04FC00E9625B /* HomeViewController.m in Sources */,
 				59E177D6226F04FC00E9625B /* ProfileViewController.m in Sources */,
 				593CA0A3229B911800F21A02 /* RacView.m in Sources */,
+				592D1BA122BCC328008F275E /* MQTTBaseModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -767,8 +811,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARGK844GXV;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ObjcProjects/PrefixHeader.pch";
 				INFOPLIST_FILE = ObjcProjects/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -785,8 +831,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ARGK844GXV;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ObjcProjects/PrefixHeader.pch";
 				INFOPLIST_FILE = ObjcProjects/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

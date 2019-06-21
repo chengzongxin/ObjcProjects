@@ -12,6 +12,9 @@ target 'ObjcProjects' do
   pod 'MJRefresh'
   pod 'ReactiveObjC'
   pod 'Masonry'
+  pod 'MQTTClient/MinL'
+  pod 'MQTTClient/ManagerL'
+  pod 'MJExtension'
   
   target 'ObjcProjectsTests' do
     inherit! :search_paths
