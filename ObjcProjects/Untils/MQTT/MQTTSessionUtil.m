@@ -387,17 +387,25 @@
     }else if (eventCode == MQTTSessionEventProtocolError){
 //        NSLog(@"MQTT 不可接受的协议");
     }else{//MQTTSessionEventConnectionClosedByBroker
-        MQTTUtilModel * model = [self fetchModelWithSession:session];
-        NSMutableArray *topics = [NSMutableArray array];
-        for (MQTTUtilTopicModel *topicModel in model.topics) {
-            [topics addObject:topicModel.topic];
-        }
-        NSLog(@"MQTT链接 其他错误 Topic = %@",topics);
+        NSLog(@"MQTT链接 其他错误");
     }
     if (error) {
         NSLog(@"链接报错  -- %@",error);
     }
     [self handleDelegate:session event:eventCode error:error];
+    
+    // 断开重连
+    if (eventCode != MQTTSessionEventConnected) {
+        MQTTUtilModel * model = [self fetchModelWithSession:session];
+        NSMutableArray *topics = [NSMutableArray array];
+        for (MQTTUtilTopicModel *topicModel in model.topics) {
+            [topics addObject:topicModel.topic];
+        }
+        
+        [self connectWithIdentify:model.identify connectHandle:^(NSError *error) {
+            NSLog(@"connectWithIdentify = %@",error);
+        }];
+    }
 }
 
 - (void)connected:(MQTTSession *)session {
