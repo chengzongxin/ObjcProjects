@@ -10,90 +10,132 @@
 #import <ReactiveObjC.h>
 #import "UIScrollView+RefreshController.h"
 
-@interface MessageViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "UIScrollView+RefreshController.h"
+#import "UIViewController+HBD.h"
+#import "UIScrollView+Base.h"
+#import <MJRefresh.h>
+
+@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+@property (strong, nonatomic) UITableView *tableView;
 
 @property (strong, nonatomic) NSMutableArray *datas;
-@property (strong,nonatomic) UITableView *tableView;
 
 @end
 
 @implementation MessageViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _datas = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7", nil];
     
-    self.tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
-    [self.view addSubview:self.tableView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"changeBar" style:UIBarButtonItemStylePlain target:self action:@selector(changeBar)];
     
-    [self.tableView addRefreshWithTarget:self headerSelector:@selector(headerRefresh) footerSelect:@selector(footerRefresh)];
-//    [self.tableView addRefreshWithTarget:self headerSelector:nil footerSelect:@selector(footerRefresh)];
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < 10; i ++) {
+        [arr addObject:@(i).stringValue];
+    }
+    self.datas = arr;
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.frame style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+    tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.view addSubview:tableView];
     
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"add" style:UIBarButtonItemStylePlain target:self action:@selector(_add)];
+    self.tableView = tableView;
+    self.tableView.tableFooterView = [UIView new];
+    [tableView addRefreshWithTarget:self headerSelector:@selector(loadDatas) footerSelect:@selector(loadDatas)];
     
-//    UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, -88, self.view.frame.size.width, 88)];
-//    header.backgroundColor = UIColor.orangeColor;
-//    [self.tableView addSubview:header];
-//
-//
-//    UIView *footer = [[UIView alloc] init];
-//    footer.backgroundColor = UIColor.greenColor;
-//    footer.layer.zPosition = -1;
-//    [self.tableView addSubview:footer];
-//
-//    UILabel *label = [[UILabel alloc] init];
-//    label.frame = CGRectMake(0, 20, self.view.frame.size.width, 20);
-//    label.text = @"----已经到底啦----";
-//    label.textAlignment = NSTextAlignmentCenter;
-//    [footer addSubview:label];
+    // 无数据
+    NSString *emptyText = @"没数据,刷新下";
+    // 无数据
+    NSMutableAttributedString *emptyAttrText = [[NSMutableAttributedString alloc] initWithString:@"亲,还是没有数据哦(づ￣3￣)づ╭❤～"];
+    [emptyAttrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(0, emptyAttrText.length)];
+    [emptyAttrText addAttribute:NSForegroundColorAttributeName value:UIColor.orangeColor range:NSMakeRange(0, 9)];
     
+    // 无网络
+    NSString *networkErrorText = @"没网了,重新刷新";
+    // 无网络
+    NSMutableAttributedString *networkErrorAttrText = [[NSMutableAttributedString alloc] initWithString:@"亲,现在没有网了哦(づ￣3￣)づ╭❤～"];
+    [networkErrorAttrText addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(0, networkErrorAttrText.length)];
+    [networkErrorAttrText addAttribute:NSForegroundColorAttributeName value:UIColor.orangeColor range:NSMakeRange(0, 9)];
     
-//    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 88, 0);
-//    [RACObserve(self.tableView, contentSize) subscribeNext:^(id  _Nullable x) {
-//        CGSize size = [x CGSizeValue];
-//        footer.frame = CGRectMake(0, size.height, self.view.frame.size.width, 88);
-//    }];
+    [tableView setupEmptyDataWithEmptyImage:nil emptyText:emptyText emptyAttrText:emptyAttrText networkErrorImage:nil networkErrorText:networkErrorText networkErrorAttrText:networkErrorAttrText offset:0 tapBlock:^{
+        NSLog(@"%s",__FUNCTION__);
+        [self loadDatas];
+    }];
     
     
-    //    RACSignal *button1Singnal = [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] map:^id _Nullable(__kindof UIControl * _Nullable value) {
-    //        NSLog(@"button1 = %@",value);
-    //        return [NSDate date];
-    //    }];
 }
 
-- (void)headerRefresh{
+- (void)changeBar{
+    self.hbd_barAlpha = 0;
+    [self hbd_setNeedsUpdateNavigationBarAlpha];
+}
+
+- (void)loadDatas{
+    self.tableView.tag++;
     NSLog(@"%s",__FUNCTION__);
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.datas removeAllObjects];
-        [self.datas addObjectsFromArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]];
+        self.tableView.tag++;
+        int value = self.tableView.tag % 3;
+        if (value == 0) {
+            // 正常状态
+            self.datas = [NSMutableArray array];
+            for (int i = 0; i < 10; i ++) {
+                [self.datas addObject:@(i).stringValue];
+            }
+        }else if (value == 1) {
+            // 无数据
+            self.datas = nil;
+            self.tableView.emptyDataType = EmptyDataTypeNormal;
+        }else if (value == 2) {
+            // 无网络
+            self.datas = nil;
+            self.tableView.emptyDataType = EmptyDataTypeNetworkError;
+        }
+        
+        self.tableView.isLoading = NO;
+        [self.tableView headerStartRefresh];
         [self.tableView reloadData];
-        [self.tableView headerStopRefresh];
+        [self.tableView reloadEmptyDataSet];
     });
 }
 
-- (void)footerRefresh{
-    NSLog(@"%s",__FUNCTION__);
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.datas addObjectsFromArray:@[@"1",@"2",@"3",@"4",@"5",@"6",@"7"]];
-        [self.tableView reloadData];
-        [self.tableView footerStopRefresh];
-    });
-}
-
+//- (void)loadDatas{
+//    NSLog(@"%s",__FUNCTION__);
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.tableView.emptyDataType = EmptyDataTypeNormal;
+//
+//        self.tableView.tag++;
+//        int value = self.tableView.tag % 3;
+//        if (value == 0) {
+//            self.datas = [NSMutableArray array];
+//            for (int i = 0; i < 10; i ++) {
+//                [self.datas addObject:@(i).stringValue];
+//            }
+//        }else if (value == 1) {
+//            [self.datas removeAllObjects];
+//        }else if (value == 2) {
+//
+//            self.tableView.emptyDataType = EmptyDataTypeNetworkError;
+//        }
+//
+//        self.tableView.isLoading = NO;
+//        [self.tableView stopRefresh];
+//        [self.tableView reloadData];
+//    });
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return _datas.count;
+    return self.datas.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class])];
-    cell.textLabel.text = _datas[indexPath.row];
+    cell.textLabel.text = self.datas[indexPath.row];
     return cell;
 }
 
